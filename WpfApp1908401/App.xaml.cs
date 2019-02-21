@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfApp1908401.Models;
 
 namespace WpfApp1908401
 {
@@ -13,5 +14,6 @@ namespace WpfApp1908401
   /// </summary>
   public partial class App : Application
   {
+    private static ApplicationSettings settings { get; set; } = new ApplicationSettings();
   }
 }
