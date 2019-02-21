@@ -14,11 +14,13 @@ namespace WpfApp1908401
   /// </summary>
   public partial class App : Application
   {
-    private static ApplicationSettings settings { get; set; } = new ApplicationSettings();
+    public static ApplicationSettings Settings { get; set; } = new ApplicationSettings();
 
     public App()
     {
       //MessageBox.Show($"Database name: {settings.DatabaseName}");
+
+      
     }
   }
 }

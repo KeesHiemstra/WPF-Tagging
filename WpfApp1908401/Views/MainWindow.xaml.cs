@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +25,18 @@ namespace WpfApp1908401
     public MainWindow()
     {
       InitializeComponent();
+    }
+
+    private void Window_Loaded(object sender, RoutedEventArgs e)
+    {
+      string ExeLocation = Assembly.GetExecutingAssembly().Location;
+      string ExeFolder = System.IO.Path.GetDirectoryName(ExeLocation);
+
+
+      ExeLocationTextBlock.Text = $"\"{ExeLocation}\"";
+      ExeFolderTextBlock.Text = $"\"{ExeFolder}\"";
+
+      SettingExecutableFolderTextBlock.Text = $"\"{App.Settings.ExecutableFolder}\"";
     }
   }
 }

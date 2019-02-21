@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1908401"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Margin="10">
+        <StackPanel>
+            <TextBlock>
+                Executable location: 
+                <TextBlock Name="ExeLocationTextBlock" Text=""/>
+            </TextBlock>
+
+            <TextBlock>
+                Local executable folder: 
+                <TextBlock Name="ExeFolderTextBlock" Text=""/>
+            </TextBlock>
+
+            <Separator/>
+            <TextBlock>
+                Settings
+                <LineBreak/>
+                .Executable folder: 
+                <TextBlock Name="SettingExecutableFolderTextBlock"/>
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </Window>
