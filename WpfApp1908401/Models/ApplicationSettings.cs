@@ -53,7 +53,7 @@ namespace WpfApp1908401.Models
       {
         if (driveBaseName != value)
         {
-          driveBaseName = value;
+          driveBaseName = value.Replace("System.Windows.Controls.ComboBoxItem: ", "");
           OnPropertyChanged("DriveBaseName");
           changed = true;
         }
@@ -116,6 +116,15 @@ namespace WpfApp1908401.Models
       get
       {
         return $"{ExecutableFolder}\\{ExecutableName}.json";
+      }
+    }
+
+    [JsonIgnore]
+    public string ImportOpenFolder
+    {
+      get
+      {
+        return "";
       }
     }
 

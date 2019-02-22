@@ -28,15 +28,26 @@ namespace WpfApp1908401
       InitializeComponent();
     }
 
+    //ToDo: Remove useless method
     private void Window_Loaded(object sender, RoutedEventArgs e)
     {
     }
 
+    /// <summary>
+    /// Close the MainWindow
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void FileExitMenu_Click(object sender, RoutedEventArgs e)
     {
       Close();
     }
 
+    /// <summary>
+    /// Open the Settings window
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void FileSettingsMenu_Click(object sender, RoutedEventArgs e)
     {
       Settings settings = new Settings(Left, Top);

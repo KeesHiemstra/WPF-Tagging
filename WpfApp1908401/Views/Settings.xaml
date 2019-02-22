@@ -10,6 +10,7 @@
         Width="360"
         MinWidth="360"
         Title="Application settings" >
+
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
@@ -44,14 +45,18 @@
                  Grid.Row="1"/>
 
         <Label Content="D_rive name:"
-               Target="{Binding ElementName=DriveBaseNameTextBox}"
+               Target="{Binding ElementName=DriveBaseNameComboBox}"
                Grid.Column="0"
                Grid.Row="2"/>
-        <TextBox Name="DriveBaseNameTextBox"
-                 Text="{Binding DriveBaseName}"
-                 Margin="0,0,0,5"
-                 Grid.Column="1"
-                 Grid.Row="2"/>
+        <ComboBox Name="DriveBaseNameComboBox"
+                  SelectedItem="{Binding DriveBaseName}"
+                  Margin="0,0,0,5"
+                  Grid.Column="1"
+                  Grid.Row="2">
+            <ComboBoxItem Content="C:"/>
+            <ComboBoxItem Content="%OneDrive%"
+                          IsSelected="True"/>
+        </ComboBox>
 
         <Label Content="_Folder name:"
                Target="{Binding ElementName=FolderBaseNameTextBox}"
