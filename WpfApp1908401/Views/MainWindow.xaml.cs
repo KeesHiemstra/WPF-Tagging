@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1908401.Views;
 
 namespace WpfApp1908401
 {
@@ -29,6 +30,17 @@ namespace WpfApp1908401
 
     private void Window_Loaded(object sender, RoutedEventArgs e)
     {
+    }
+
+    private void FileExitMenu_Click(object sender, RoutedEventArgs e)
+    {
+      Close();
+    }
+
+    private void FileSettingsMenu_Click(object sender, RoutedEventArgs e)
+    {
+      Settings settings = new Settings(Left, Top);
+      settings.Show();
     }
   }
 }

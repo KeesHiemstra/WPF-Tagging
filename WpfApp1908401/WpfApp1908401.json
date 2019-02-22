@@ -1,6 +1,3 @@
 {
-  "ServerName": "",
-  "DatabaseName": "Banking_Dev",
-  "DriveBaseName": "",
-  "FolderBaseName": ""
+  "DatabaseName": "Banking_Dev"
 }

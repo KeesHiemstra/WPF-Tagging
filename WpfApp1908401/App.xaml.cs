@@ -43,23 +43,6 @@ namespace WpfApp1908401
         string jsonFile = sr.ReadToEnd();
         json = JsonConvert.DeserializeObject<ApplicationSettings>(jsonFile);
       }
-
-      if (!string.IsNullOrEmpty(json.ServerName) && json.ServerName != App.Settings.ServerName)
-      {
-        App.Settings.ServerName = json.ServerName;
-      }
-      if (!string.IsNullOrEmpty(json.DatabaseName) && json.DatabaseName != App.Settings.DatabaseName)
-      {
-        App.Settings.DatabaseName = json.DatabaseName;
-      }
-      if (!string.IsNullOrEmpty(json.DriveBaseName) && json.DriveBaseName != App.Settings.DriveBaseName)
-      {
-        App.Settings.DriveBaseName = json.DriveBaseName;
-      }
-      if (!string.IsNullOrEmpty(json.FolderBaseName) && json.FolderBaseName != App.Settings.FolderBaseName)
-      {
-        App.Settings.FolderBaseName = json.FolderBaseName;
-      }
     }
   }
 }

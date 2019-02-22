@@ -74,11 +74,13 @@ namespace WpfApp1908401.Models
       }
     }
 
+    [JsonIgnore]
     public bool IsChanged
     {
       get => changed;
     }
 
+    [JsonIgnore]
     public bool IsChangedAndReset
     {
       get
@@ -89,6 +91,7 @@ namespace WpfApp1908401.Models
       }
     }
 
+    [JsonIgnore]
     public string ExecutableFolder
     {
       get
@@ -97,6 +100,7 @@ namespace WpfApp1908401.Models
       }
     }
 
+    [JsonIgnore]
     public string ExecutableName
     {
       get
@@ -106,11 +110,21 @@ namespace WpfApp1908401.Models
       }
     }
 
+    [JsonIgnore]
     public string ExecutableJsonFile
     {
       get
       {
         return $"{ExecutableFolder}\\{ExecutableName}.json";
+      }
+    }
+
+    public void Save()
+    {
+      string json = JsonConvert.SerializeObject(this, Formatting.Indented);
+      using (StreamWriter stream = new StreamWriter(ExecutableJsonFile))
+      {
+        stream.Write(json);
       }
     }
 
@@ -125,7 +139,7 @@ namespace WpfApp1908401.Models
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName) => 
+    protected void OnPropertyChanged(string propertyName) =>
       PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
   }

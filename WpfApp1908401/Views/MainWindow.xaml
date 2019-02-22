@@ -7,8 +7,25 @@
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="10">
-        <StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Menu>
+            <MenuItem Header="_File">
+                <MenuItem Name="FileSettingsMenu"
+                          Header="_Settings"
+                          Click="FileSettingsMenu_Click"/>
+                <Separator/>
+                <MenuItem Name="FileExitMenu"
+                          Header="E_xit"
+                          Click="FileExitMenu_Click"/>
+            </MenuItem>
+        </Menu>
+        <StackPanel Grid.Column="1"
+                    Margin="10">
         </StackPanel>
     </Grid>
 </Window>
