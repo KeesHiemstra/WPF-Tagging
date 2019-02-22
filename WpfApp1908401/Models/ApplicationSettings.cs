@@ -17,6 +17,7 @@ namespace WpfApp1908401.Models
     private static string databaseName;
     private static string driveBaseName;
     private static string folderBaseName;
+    private static string importOpenFolder;
 
     public string ServerName
     {
@@ -124,7 +125,16 @@ namespace WpfApp1908401.Models
     {
       get
       {
-        return "";
+        if (DriveBaseName == "%OneDrive%")
+        {
+          importOpenFolder = Environment.GetEnvironmentVariable("OneDrive");
+        }
+        else
+        {
+          importOpenFolder = DriveBaseName;
+        }
+
+        return $"{importOpenFolder}\\{FolderBaseName}";
       }
     }
 
