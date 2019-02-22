@@ -9,23 +9,6 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Margin="10">
         <StackPanel>
-            <TextBlock>
-                Executable location: 
-                <TextBlock Name="ExeLocationTextBlock" Text=""/>
-            </TextBlock>
-
-            <TextBlock>
-                Local executable folder: 
-                <TextBlock Name="ExeFolderTextBlock" Text=""/>
-            </TextBlock>
-
-            <Separator/>
-            <TextBlock>
-                Settings
-                <LineBreak/>
-                .Executable folder: 
-                <TextBlock Name="SettingExecutableFolderTextBlock"/>
-            </TextBlock>
         </StackPanel>
     </Grid>
 </Window>

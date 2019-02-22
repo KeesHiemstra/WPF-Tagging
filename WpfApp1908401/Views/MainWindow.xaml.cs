@@ -29,14 +29,6 @@ namespace WpfApp1908401
 
     private void Window_Loaded(object sender, RoutedEventArgs e)
     {
-      string ExeLocation = Assembly.GetExecutingAssembly().Location;
-      string ExeFolder = System.IO.Path.GetDirectoryName(ExeLocation);
-
-
-      ExeLocationTextBlock.Text = $"\"{ExeLocation}\"";
-      ExeFolderTextBlock.Text = $"\"{ExeFolder}\"";
-
-      SettingExecutableFolderTextBlock.Text = $"\"{App.Settings.ExecutableFolder}\"";
     }
   }
 }
