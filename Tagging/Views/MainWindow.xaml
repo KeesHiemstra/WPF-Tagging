@@ -9,12 +9,18 @@
         Closing="Window_Closing"
         Title="Tagging" Height="450" Width="800">
     <Window.CommandBindings>
+        <CommandBinding Command="cmd:MainWindowCommands.Save"
+                        CanExecute="SaveCommand_CanExecute"
+                        Executed="SaveCommand_Execute"/>
         <CommandBinding Command="cmd:MainWindowCommands.Exit"
                         CanExecute="ExitCommand_CanExecute"
                         Executed="ExitCommand_Execute"/>
         <CommandBinding Command="cmd:MainWindowCommands.New"
                         CanExecute="NewCommand_CanExecute"
                         Executed="NewCommand_Execute"/>
+        <CommandBinding Command="cmd:MainWindowCommands.TagIdToDate"
+                        CanExecute="TagIdToDateCommand_CanExecute"
+                        Executed="TagIdToDateCommand_Execute"/>
     </Window.CommandBindings>
     <Grid>
         <Grid.RowDefinitions>
@@ -24,10 +30,15 @@
         
         <Menu>
             <MenuItem Header="_File">
+                <MenuItem Command="cmd:MainWindowCommands.Save"/>
+                <Separator/>
                 <MenuItem Command="cmd:MainWindowCommands.Exit"/>
             </MenuItem>
             <MenuItem Header="_Data">
                 <MenuItem Command="cmd:MainWindowCommands.New"/>
+            </MenuItem>
+            <MenuItem Header="_Tools">
+                <MenuItem Command="cmd:MainWindowCommands.TagIdToDate"/>
             </MenuItem>
         </Menu>
         

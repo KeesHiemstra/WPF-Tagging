@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Tagging.Models;
+using Tagging.Views;
 
 namespace Tagging
 {
@@ -54,7 +57,37 @@ namespace Tagging
 
     private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
     {
+      
+    }
 
+    private void SaveCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+    {
+      e.CanExecute = true;
+    }
+
+    private void SaveCommand_Execute(object sender, ExecutedRoutedEventArgs e)
+    {
+      string JsonFileName = @"%OneDrive%\Data\Tagging.json";
+      string oneDrive = Environment.GetEnvironmentVariable("OneDrive");
+      JsonFileName = JsonFileName.Replace("%OneDrive%", oneDrive);
+
+      string json = JsonConvert.SerializeObject(Tags, Formatting.Indented);
+      using (StreamWriter stream = new StreamWriter(JsonFileName))
+      {
+        stream.Write(json);
+      }
+
+    }
+
+    private void TagIdToDateCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+    {
+      e.CanExecute = true;
+    }
+
+    private void TagIdToDateCommand_Execute(object sender, ExecutedRoutedEventArgs e)
+    {
+      TagIdToDateWindow window = new TagIdToDateWindow(Left, Top);
+      window.ShowDialog();
     }
   }
 }

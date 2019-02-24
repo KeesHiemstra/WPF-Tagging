@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,28 @@ namespace Tagging.Commands
         new InputGestureCollection()
         {
           new KeyGesture(Key.N, ModifierKeys.Control)
+        }
+      );
+
+    public static readonly RoutedUICommand Save = new RoutedUICommand
+      (
+        "_New",
+        "New",
+        typeof(MainWindowCommands),
+        new InputGestureCollection()
+        {
+          new KeyGesture(Key.S, ModifierKeys.Control)
+        }
+      );
+
+    public static readonly RoutedUICommand TagIdToDate = new RoutedUICommand
+      (
+        "Tag ID to _Date",
+        "TagIdToDate",
+        typeof(MainWindowCommands),
+        new InputGestureCollection()
+        {
+          new KeyGesture(Key.D, ModifierKeys.Alt)
         }
       );
   }
