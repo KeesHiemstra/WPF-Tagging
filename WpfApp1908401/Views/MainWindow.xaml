@@ -4,9 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1908401"
+        xmlns:cmd="clr-namespace:WpfApp1908401.Commands"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Title="MainWindow" Height="450" Width="800">
+    <Window.CommandBindings>
+        <CommandBinding Command="cmd:MainCommands.Exit"
+                        CanExecute="ExitCommand_CanExecute"
+                        Executed="ExitCommand_Execute"/>
+        <CommandBinding Command="cmd:MainCommands.Settings"
+                        CanExecute="SettingsCommand_CanExecute"
+                        Executed="SettingsCommand_Execute"/>
+    </Window.CommandBindings>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -15,13 +25,9 @@
         
         <Menu>
             <MenuItem Header="_File">
-                <MenuItem Name="FileSettingsMenu"
-                          Header="_Settings"
-                          Click="FileSettingsMenu_Click"/>
+                <MenuItem Command="cmd:MainCommands.Settings"/>
                 <Separator/>
-                <MenuItem Name="FileExitMenu"
-                          Header="E_xit"
-                          Click="FileExitMenu_Click"/>
+                <MenuItem Command="cmd:MainCommands.Exit"/>
             </MenuItem>
         </Menu>
         <StackPanel Grid.Column="1"

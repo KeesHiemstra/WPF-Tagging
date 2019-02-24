@@ -43,15 +43,25 @@ namespace WpfApp1908401
       Close();
     }
 
-    /// <summary>
-    /// Open the Settings window
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private void FileSettingsMenu_Click(object sender, RoutedEventArgs e)
+    private void ExitCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+    {
+      e.CanExecute = true;
+    }
+
+    private void ExitCommand_Execute(object sender, ExecutedRoutedEventArgs e)
+    {
+      Application.Current.Shutdown();
+    }
+
+    private void SettingsCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+    {
+      e.CanExecute = true;
+    }
+
+    private void SettingsCommand_Execute(object sender, ExecutedRoutedEventArgs e)
     {
       Settings settings = new Settings(Left, Top);
-      settings.Show();
+      settings.ShowDialog();
     }
   }
 }
