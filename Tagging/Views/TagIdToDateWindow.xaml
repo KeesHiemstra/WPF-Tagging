@@ -27,6 +27,7 @@
             <TextBox Name="TagIdTextBox"
                      Height="17"
                      Width="75"
+                     ToolTip="Format the TagId as 'yywwD'"
                      VerticalAlignment="Center"/>
             <Button Name="GetDate"
                     Content="*"

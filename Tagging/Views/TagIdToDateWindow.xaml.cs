@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Tagging.ModelViews;
 
 namespace Tagging.Views
 {
@@ -19,6 +20,8 @@ namespace Tagging.Views
   /// </summary>
   public partial class TagIdToDateWindow : Window
   {
+    private static TagIdToDate tagIdToDate = new TagIdToDate();
+
     public TagIdToDateWindow(double WindowLeft, double WindowTop)
     {
       InitializeComponent();
@@ -30,7 +33,7 @@ namespace Tagging.Views
 
     private void GetDate_Click(object sender, RoutedEventArgs e)
     {
-
+      DateTextBlock.Text = tagIdToDate.CalculateTagIdToDate(TagIdTextBox.Text);
     }
 
     private void OK_Click(object sender, RoutedEventArgs e)
