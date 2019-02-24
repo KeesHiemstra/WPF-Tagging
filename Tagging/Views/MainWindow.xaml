@@ -4,10 +4,36 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tagging"
+        xmlns:cmd="clr-namespace:Tagging.Commands"
         mc:Ignorable="d"
+        Closing="Window_Closing"
         Title="Tagging" Height="450" Width="800">
+    <Window.CommandBindings>
+        <CommandBinding Command="cmd:MainWindowCommands.Exit"
+                        CanExecute="ExitCommand_CanExecute"
+                        Executed="ExitCommand_Execute"/>
+        <CommandBinding Command="cmd:MainWindowCommands.New"
+                        CanExecute="NewCommand_CanExecute"
+                        Executed="NewCommand_Execute"/>
+    </Window.CommandBindings>
     <Grid>
-        <DataGrid Name="TagsDataGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Menu>
+            <MenuItem Header="_File">
+                <MenuItem Command="cmd:MainWindowCommands.Exit"/>
+            </MenuItem>
+            <MenuItem Header="_Data">
+                <MenuItem Command="cmd:MainWindowCommands.New"/>
+            </MenuItem>
+        </Menu>
+        
+        <DataGrid Name="TagsDataGrid"
+                  Grid.Row="1"
+                  Margin="5">
             
         </DataGrid>
         

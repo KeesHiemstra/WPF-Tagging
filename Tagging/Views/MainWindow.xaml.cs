@@ -31,5 +31,30 @@ namespace Tagging
 
       TagsDataGrid.ItemsSource = Tags;
     }
+
+    private void ExitCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+    {
+      e.CanExecute = true;
+    }
+
+    private void ExitCommand_Execute(object sender, ExecutedRoutedEventArgs e)
+    {
+      Application.Current.Shutdown();
+    }
+
+    private void NewCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+    {
+      e.CanExecute = true;
+    }
+
+    private void NewCommand_Execute(object sender, ExecutedRoutedEventArgs e)
+    {
+      MessageBox.Show("Not build yet");
+    }
+
+    private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+
+    }
   }
 }
