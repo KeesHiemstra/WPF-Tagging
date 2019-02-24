@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tagging.Models;
 
 namespace Tagging
 {
@@ -20,9 +22,16 @@ namespace Tagging
   /// </summary>
   public partial class MainWindow : Window
   {
+    //public static ObservableCollection<Tag> Tags { get; set; } = new ObservableCollection<Tag>();
+
     public MainWindow()
     {
       InitializeComponent();
+
+      //Tags = App.Tags
+        //.OrderByDescending(x => x.TagId)
+        //.ToList();
+      TagsDataGrid.ItemsSource = App.Tags;
     }
   }
 }
