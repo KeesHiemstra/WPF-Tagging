@@ -22,16 +22,15 @@ namespace Tagging
   /// </summary>
   public partial class MainWindow : Window
   {
-    //public static ObservableCollection<Tag> Tags { get; set; } = new ObservableCollection<Tag>();
-
     public MainWindow()
     {
       InitializeComponent();
 
-      //Tags = App.Tags
-        //.OrderByDescending(x => x.TagId)
-        //.ToList();
-      TagsDataGrid.ItemsSource = App.Tags;
+      var query = from t in App.Tags
+                  orderby t.TagId descending
+                  select t;
+
+      TagsDataGrid.ItemsSource = query;
     }
   }
 }
