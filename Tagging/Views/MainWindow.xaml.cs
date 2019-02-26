@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Tagging.Models;
+using Tagging.ModelViews;
 using Tagging.Views;
 
 namespace Tagging
@@ -24,7 +25,7 @@ namespace Tagging
   /// Interaction logic for MainWindow.xaml
   /// </summary>
   public partial class MainWindow : Window
-  {
+  { 
     public static ObservableCollection<Tag> Tags { get; set; } = 
       new ObservableCollection<Tag>(App.Tags.OrderByDescending(x => x.TagId));
 
@@ -88,6 +89,11 @@ namespace Tagging
     {
       TagIdToDateWindow window = new TagIdToDateWindow(Left, Top);
       window.ShowDialog();
+    }
+
+    private void TagsDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+      EditTag editTag = new EditTag(this, sender);
     }
   }
 }

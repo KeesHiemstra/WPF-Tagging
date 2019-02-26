@@ -61,10 +61,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ModelViews\EditTag.cs" />
     <Compile Include="ModelViews\Tools.cs" />
+    <Compile Include="Views\EditWindow.xaml.cs">
+      <DependentUpon>EditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TagIdToDateWindow.xaml.cs">
       <DependentUpon>TagIdToDateWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\EditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

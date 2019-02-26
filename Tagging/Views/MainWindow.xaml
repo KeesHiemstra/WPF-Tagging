@@ -41,11 +41,27 @@
                 <MenuItem Command="cmd:MainWindowCommands.TagIdToDate"/>
             </MenuItem>
         </Menu>
-        
+
         <DataGrid Name="TagsDataGrid"
+                  ItemsSource="{Binding}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
                   Grid.Row="1"
-                  Margin="5">
-            
+                  Margin="5" MouseDoubleClick="TagsDataGrid_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Tag"
+                                    Binding="{Binding TagId}"/>
+                <DataGridTextColumn Header="Date"
+                                    Binding="{Binding Date, StringFormat={}{0:yyyy-MM-dd}}"/>
+                <DataGridTextColumn Header="Action"
+                                    Binding="{Binding Action}"/>
+                <DataGridTextColumn Header="Subject"
+                                    Binding="{Binding Subject}"/>
+                <DataGridTextColumn Header="Description"
+                                    Binding="{Binding Description}"/>
+            </DataGrid.Columns>
         </DataGrid>
         
     </Grid>

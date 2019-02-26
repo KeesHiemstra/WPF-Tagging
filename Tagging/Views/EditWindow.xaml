@@ -1,0 +1,66 @@
+﻿<Window x:Class="Tagging.Views.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tagging.Views"
+        mc:Ignorable="d"
+        Title="Tag details" Height="225" Width="400">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Date: "
+               Grid.Column="0"
+               Grid.Row="0"/>
+        <StackPanel Orientation="Horizontal"
+                    Grid.Column="1"
+                    Grid.Row="0">
+            <DatePickerTextBox Name="DateDatePickerTextBox"
+                               Text="{Binding Date}"/>
+        </StackPanel>
+        
+        <Label Content="Tag ID: "
+               Grid.Column="0"
+               Grid.Row="1"/>
+        <TextBox Name="TagIdTextBox"
+                 Text="{Binding TagId}"
+                 Grid.Column="1"
+                 Grid.Row="1"/>
+
+        <Label Content="Action: "
+               Grid.Column="0"
+               Grid.Row="2"/>
+        <ComboBox Name="ActionComboBox"
+                  SelectedItem="{Binding Action}"
+                  Grid.Column="1"
+                  Grid.Row="2"/>
+
+        <Label Content="Subject: "
+               Grid.Column="0"
+               Grid.Row="3"/>
+        <TextBox Name="SubjectTextBox"
+                 Text="{Binding Subject}"
+                 Grid.Column="1"
+                 Grid.Row="3"/>
+
+        <Label Content="Description: "
+               Grid.Column="0"
+               Grid.Row="4"/>
+        <TextBox Name="DescriptionTextBox"
+                 Text="{Binding Description}"
+                 Grid.Column="1"
+                 Grid.Row="4"/>
+    </Grid>
+</Window>
