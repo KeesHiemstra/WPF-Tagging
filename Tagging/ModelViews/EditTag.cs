@@ -12,6 +12,16 @@ namespace Tagging.ModelViews
   public class EditTag
   {
     public static Tag CurrentTag { get; set; }
+    private static List<string> Actions { get; set; } = new List<string>(GetActions());
+
+    private static List<string> GetActions()
+    {
+      return App.Tags
+        .Select(x => x.Action)
+        .Distinct()
+        .OrderBy(x => x)
+        .ToList();
+    }
 
     public EditTag(MainWindow parent, object sender)
     {
@@ -38,6 +48,7 @@ namespace Tagging.ModelViews
       window.Left = parent.Left + (window.Width / 2);
       window.Top = parent.Top + (window.Height / 2);
       window.DataContext = CurrentTag;
+      window.ActionComboBox.ItemsSource = Actions;
 
       window.ShowDialog();
     }

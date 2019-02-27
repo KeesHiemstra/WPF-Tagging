@@ -27,8 +27,9 @@
         <StackPanel Orientation="Horizontal"
                     Grid.Column="1"
                     Grid.Row="0">
-            <DatePickerTextBox Name="DateDatePickerTextBox"
-                               Text="{Binding Date}"/>
+            <DatePicker Name="DateDatePicker"
+                        Text="{Binding Date}"/>
+                                    
         </StackPanel>
         
         <Label Content="Tag ID: "
@@ -44,6 +45,7 @@
                Grid.Row="2"/>
         <ComboBox Name="ActionComboBox"
                   SelectedItem="{Binding Action}"
+                  IsEditable="True"
                   Grid.Column="1"
                   Grid.Row="2"/>
 
