@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tagging.Views"
         mc:Ignorable="d"
-        Title="Tag details" Height="225" Width="400">
+        Title="Tag details" Height="300" Width="300" MinWidth="300">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -28,7 +27,8 @@
                     Grid.Column="1"
                     Grid.Row="0">
             <DatePicker Name="DateDatePicker"
-                        Text="{Binding Date}"/>
+                        Text="{Binding Date}"
+                        Margin="0,0,0,5"/>
                                     
         </StackPanel>
         
@@ -37,6 +37,7 @@
                Grid.Row="1"/>
         <TextBox Name="TagIdTextBox"
                  Text="{Binding TagId}"
+                 Margin="0,0,0,5"
                  Grid.Column="1"
                  Grid.Row="1"/>
 
@@ -45,6 +46,7 @@
                Grid.Row="2"/>
         <ComboBox Name="ActionComboBox"
                   SelectedItem="{Binding Action}"
+                  Margin="0,0,0,5"
                   IsEditable="True"
                   Grid.Column="1"
                   Grid.Row="2"/>
@@ -54,6 +56,7 @@
                Grid.Row="3"/>
         <TextBox Name="SubjectTextBox"
                  Text="{Binding Subject}"
+                 Margin="0,0,0,5"
                  Grid.Column="1"
                  Grid.Row="3"/>
 
@@ -62,7 +65,13 @@
                Grid.Row="4"/>
         <TextBox Name="DescriptionTextBox"
                  Text="{Binding Description}"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                 ScrollViewer.CanContentScroll="True"
+                 VerticalScrollBarVisibility="Auto"
+                 Margin="0,0,0,5"
+                 Height="63"
                  Grid.Column="1"
-                 Grid.Row="4"/>
+                 Grid.Row="4" />
     </Grid>
 </Window>
