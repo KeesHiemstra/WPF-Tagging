@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tagging.Views"
         xmlns:cmd="clr-namespace:Tagging.Commands"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Height="256" 
         Width="300"
@@ -35,14 +36,14 @@
         <Label Content="Date: "
                Grid.Column="0"
                Grid.Row="0"/>
-        <StackPanel Orientation="Horizontal"
-                    Grid.Column="1"
-                    Grid.Row="0">
-            <DatePicker Name="DateDatePicker"
-                        Text="{Binding Date}"
-                        Margin="0,0,0,5"/>
-            
-        </StackPanel>
+        <xctk:DateTimePicker Name="DateDateTimePicker"
+                             Value="{Binding Date}"
+                             Format="Custom"
+                             FormatString="yyyy-MM-dd HH:mm"
+                             HorizontalAlignment="Left"
+                             Width="137"
+                             Grid.Column="1"
+                             Grid.Row="0"/>
 
         <Label Content="Tag ID: "
                Grid.Column="0"
