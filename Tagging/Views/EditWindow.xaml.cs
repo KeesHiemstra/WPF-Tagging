@@ -21,8 +21,6 @@ namespace Tagging.Views
   /// </summary>
   public partial class EditWindow : Window
   {
-    //private static EditTag _EditTag { get; set; }
-
     public EditWindow()
     {
       InitializeComponent();
@@ -30,7 +28,9 @@ namespace Tagging.Views
 
     private void OkayButton_CanExecute(object sender, CanExecuteRoutedEventArgs e)
     {
-      e.CanExecute = true;
+      e.CanExecute = !string.IsNullOrEmpty(EditTag.CurrentTag.Date.ToString()) &&
+        !string.IsNullOrWhiteSpace(EditTag.CurrentTag.Action) &&
+        !string.IsNullOrWhiteSpace(EditTag.CurrentTag.Subject);
     }
 
     private void OkayButton_Executed(object sender, ExecutedRoutedEventArgs e)
