@@ -27,5 +27,15 @@ namespace Tagging.Views
     {
       InitializeComponent();
     }
+
+    private void OkayButton_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+    {
+      e.CanExecute = true;
+    }
+
+    private void OkayButton_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+      Close();
+    }
   }
 }

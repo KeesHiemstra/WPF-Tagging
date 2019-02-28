@@ -45,8 +45,8 @@ namespace Tagging.ModelViews
     private void OpenTag(MainWindow parent)
     {
       EditWindow window = new EditWindow();
-      window.Left = parent.Left + (window.Width / 2);
-      window.Top = parent.Top + (window.Height / 2);
+      window.Left = parent.Left + (parent.Width - window.Width) /2;
+      window.Top = parent.Top + (parent.Height - window.Height) / 2;
       window.DataContext = CurrentTag;
       window.ActionComboBox.ItemsSource = Actions;
 

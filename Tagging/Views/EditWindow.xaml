@@ -4,8 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tagging.Views"
+        xmlns:cmd="clr-namespace:Tagging.Commands"
         mc:Ignorable="d"
-        Title="Tag details" Height="300" Width="300" MinWidth="300">
+        Height="256" 
+        Width="300"
+        MinHeight="256"
+        MinWidth="300"
+        Title="Tag details">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="cmd:EditWindowCommands.Okay"
+                        CanExecute="OkayButton_CanExecute"
+                        Executed="OkayButton_Executed"/>
+    </Window.CommandBindings>
+
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -29,9 +41,9 @@
             <DatePicker Name="DateDatePicker"
                         Text="{Binding Date}"
                         Margin="0,0,0,5"/>
-                                    
+            
         </StackPanel>
-        
+
         <Label Content="Tag ID: "
                Grid.Column="0"
                Grid.Row="1"/>
@@ -73,5 +85,13 @@
                  Height="63"
                  Grid.Column="1"
                  Grid.Row="4" />
+
+        <Button Command="cmd:EditWindowCommands.Okay"
+                Content="OK"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Width="75"
+                Grid.Column="1"
+                Grid.Row="5"/>
     </Grid>
 </Window>
