@@ -25,17 +25,30 @@ namespace Tagging
   /// Interaction logic for MainWindow.xaml
   /// </summary>
   public partial class MainWindow : Window
-  { 
-    public static ObservableCollection<Tag> Tags { get; set; } = 
-      new ObservableCollection<Tag>(App.Tags.OrderByDescending(x => x.TagId));
+  {
+    //public ObservableCollection<Tag> ViewTags { get; set; } = 
+    //App.Tags;
+    //new ObservableCollection<Tag>(App.Tags.OrderByDescending(x => x.TagId));
 
     public MainWindow()
     {
       InitializeComponent();
 
-      TagsDataGrid.ItemsSource = Tags;
+      //TagsDataGrid.ItemsSource = ViewBags;
+      //TagsDataGrid.ItemsSource = App.Tags.OrderByDescending(x => x.TagId);
+      TagsDataGrid.ItemsSource = App.Tags;
     }
 
+    private void TagsDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+      EditTag editTag = new EditTag(this, sender);
+    }
+
+    private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+    }
+
+    #region Exit command
     private void ExitCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
     {
       e.CanExecute = true;
@@ -45,7 +58,9 @@ namespace Tagging
     {
       Application.Current.Shutdown();
     }
+    #endregion
 
+    #region New command
     private void NewCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
     {
       e.CanExecute = true;
@@ -53,14 +68,11 @@ namespace Tagging
 
     private void NewCommand_Execute(object sender, ExecutedRoutedEventArgs e)
     {
-      MessageBox.Show("Not build yet");
+      EditTag editTag = new EditTag(this);
     }
+    #endregion
 
-    private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-    {
-      
-    }
-
+    #region Save command
     private void SaveCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
     {
       e.CanExecute = true;
@@ -72,14 +84,17 @@ namespace Tagging
       string oneDrive = Environment.GetEnvironmentVariable("OneDrive");
       JsonFileName = JsonFileName.Replace("%OneDrive%", oneDrive);
 
-      string json = JsonConvert.SerializeObject(Tags, Formatting.Indented);
+      //Save the original App.Tags list
+      string json = JsonConvert.SerializeObject(App.Tags.OrderByDescending(x => x.TagId), Formatting.Indented);
       using (StreamWriter stream = new StreamWriter(JsonFileName))
       {
         stream.Write(json);
       }
 
     }
+    #endregion
 
+    #region TagID to date command
     private void TagIdToDateCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
     {
       e.CanExecute = true;
@@ -90,10 +105,6 @@ namespace Tagging
       TagIdToDateWindow window = new TagIdToDateWindow(Left, Top);
       window.ShowDialog();
     }
-
-    private void TagsDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-    {
-      EditTag editTag = new EditTag(this, sender);
-    }
+    #endregion
   }
 }

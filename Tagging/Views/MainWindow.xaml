@@ -7,7 +7,10 @@
         xmlns:cmd="clr-namespace:Tagging.Commands"
         mc:Ignorable="d"
         Closing="Window_Closing"
-        Title="Tagging" Height="450" Width="800">
+        Height="450"
+        Width="800"
+        Title="Tagging" >
+    
     <Window.CommandBindings>
         <CommandBinding Command="cmd:MainWindowCommands.Save"
                         CanExecute="SaveCommand_CanExecute"
@@ -22,6 +25,7 @@
                         CanExecute="TagIdToDateCommand_CanExecute"
                         Executed="TagIdToDateCommand_Execute"/>
     </Window.CommandBindings>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

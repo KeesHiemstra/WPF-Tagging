@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Tagging.Models;
 using Tagging.ModelViews;
+using Xceed.Wpf.Toolkit;
 
 namespace Tagging.Views
 {
@@ -21,8 +22,14 @@ namespace Tagging.Views
   /// </summary>
   public partial class EditWindow : Window
   {
-    public EditWindow()
+    private Action calculatTagID;
+    private Action saveTagAction;
+
+    public EditWindow(Action CalculatTagID, Action SaveTagAction)
     {
+      calculatTagID = CalculatTagID;
+      saveTagAction = SaveTagAction;
+
       InitializeComponent();
     }
 
@@ -35,7 +42,23 @@ namespace Tagging.Views
 
     private void OkayButton_Executed(object sender, ExecutedRoutedEventArgs e)
     {
+      saveTagAction();
       Close();
+    }
+
+    private void DateDateTimePicker_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+    {
+      if (e.OldValue == null)
+      {
+        return;
+      }
+
+      if (e.OldValue == e.NewValue)
+      {
+        return;
+      }
+
+      calculatTagID();
     }
   }
 }
