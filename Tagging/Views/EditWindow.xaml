@@ -43,7 +43,8 @@
                              HorizontalAlignment="Left"
                              Width="137"
                              Grid.Column="1"
-                             Grid.Row="0" ValueChanged="DateDateTimePicker_ValueChanged"/>
+                             Grid.Row="0" 
+                             ValueChanged="DateDateTimePicker_ValueChanged"/>
 
         <Label Content="Tag ID: "
                Grid.Column="0"

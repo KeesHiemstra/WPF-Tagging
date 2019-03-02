@@ -34,8 +34,8 @@ namespace Tagging.Commands
 
     public static readonly RoutedUICommand Save = new RoutedUICommand
       (
-        "_New",
-        "New",
+        "_Save",
+        "Save",
         typeof(MainWindowCommands),
         new InputGestureCollection()
         {
