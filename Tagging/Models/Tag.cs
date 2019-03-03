@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,13 +8,30 @@ using Newtonsoft.Json;
 
 namespace Tagging.Models
 {
-  public class Tag
+  public class Tag : INotifyPropertyChanged
   {
-    public DateTime Date { get; set; }
-    public string TagId { get; set; }
-    public string Action { get; set; }
-    public string Subject { get; set; }
-    public string Description { get; set; }
+    private DateTime _date;
+    private string _tagId;
+    private string _action;
+    private string _subject;
+    private string _description;
+
+    public DateTime Date { get => _date; set => _date = value; }
+    public string TagId
+    {
+      get => _tagId;
+      set
+      {
+        if (_tagId != value)
+        {
+          _tagId = value;
+          NotifyPropertyChanged("TagId");
+        }
+      }
+    }
+    public string Action { get => _action; set => _action = value; }
+    public string Subject { get => _subject; set => _subject = value; }
+    public string Description { get => _description; set => _description = value; }
 
     [JsonIgnore]
     public string WeekNo
@@ -54,5 +72,11 @@ namespace Tagging.Models
       }
     }
 
+    public event PropertyChangedEventHandler PropertyChanged;
+    public void NotifyPropertyChanged(string propName)
+    {
+      if (this.PropertyChanged != null)
+        this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+    }
   }
 }
