@@ -30,6 +30,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
         <Menu>
@@ -67,6 +68,20 @@
                                     Binding="{Binding Description}"/>
             </DataGrid.Columns>
         </DataGrid>
-        
+
+        <StatusBar Name="StatusBar"
+                   Grid.Row="2">
+            <StatusBarItem Name="ModifiedStatusBarItem">
+                
+            </StatusBarItem>
+            <StatusBarItem Name="RecordCoundStatusBarItem">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="RecordCoundTextBlock"
+                               Text="0"/>
+                    <TextBlock Name="RecordCountTextTextBlock"
+                               Text="{Binding }"/>
+                </StackPanel>
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
 </Window>

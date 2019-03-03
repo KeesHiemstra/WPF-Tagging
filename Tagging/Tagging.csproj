@@ -78,6 +78,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\EditWindowCommands.cs" />
     <Compile Include="ModelViews\EditTag.cs" />
+    <Compile Include="ModelViews\MainModelView.cs" />
     <Compile Include="ModelViews\Tools.cs" />
     <Compile Include="Views\EditWindow.xaml.cs">
       <DependentUpon>EditWindow.xaml</DependentUpon>

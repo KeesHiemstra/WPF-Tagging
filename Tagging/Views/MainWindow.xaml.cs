@@ -26,6 +26,8 @@ namespace Tagging
   /// </summary>
   public partial class MainWindow : Window
   {
+    public MainModelView ModelView = new MainModelView(MainWindow);
+
     //public ObservableCollection<Tag> ViewTags { get; set; } = 
     //App.Tags;
     //new ObservableCollection<Tag>(App.Tags.OrderByDescending(x => x.TagId));
